@@ -391,3 +391,10 @@ hl.layer_rule({
   ignore_alpha = 0.05,
   xray = true,
 })
+
+hl.layer_rule({
+  match = { namespace = "rofi" },
+  blur = true,
+  ignore_alpha = 0.05,
+  xray = true,
+})
