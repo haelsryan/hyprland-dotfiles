@@ -1,0 +1,99 @@
+@define-color base    rgba(14, 30, 38, 0.55);
+@define-color border  rgba(255, 255, 255, 0.05);
+@define-color text    #e6eef0;
+@define-color muted   #7f9ea8;
+@define-color accent  #9fd8e6;
+@define-color ink     #10303b;
+@define-color green   #a6d189;
+@define-color yellow  #e5c76b;
+@define-color red     #e27878;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#custom-arch,
+#clock,
+#cpu,
+#memory,
+#workspaces,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#custom-power {
+  background: @base;
+  border: 1px solid @border;
+  border-radius: 16px;
+  padding: 0 10px;
+  margin: 0 3px;
+}
+
+#custom-arch  { color: @accent; font-size: 14px; padding: 0 9px; }
+#custom-power { color: @accent; padding: 0 9px; }
+
+#workspaces { padding: 0 6px; }
+
+#workspaces button {
+  padding: 0 6px;
+  margin: 3px 2px;
+  color: @muted;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: none;
+  text-shadow: none;
+}
+#workspaces button:hover { color: @text; background: transparent; }
+#workspaces button.active {
+  background: @accent;
+  color: @ink;
+  padding: 0 12px;
+}
+#workspaces button.urgent { color: @red; }
+
+#battery.charging { color: @green; }
+#battery.warning:not(.charging) { color: @yellow; }
+#battery.critical:not(.charging) { color: @red; }
+#pulseaudio.muted, #bluetooth.off, #bluetooth.disabled,
+#network.disconnected { color: @muted; }
+
+tooltip {
+  background: rgba(18, 20, 16, 0.92);
+  border: 1px solid @border;
+  border-radius: 10px;
+}
+tooltip label { color: @text; }
+
+
+#custom-arch, #clock, #cpu, #memory, #workspaces, #pulseaudio,
+#bluetooth, #network, #battery, #custom-power {
+}
+
+#custom-arch, #clock, #cpu, #memory, #workspaces, #pulseaudio,
+#bluetooth, #network, #battery, #custom-power {
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+#workspaces button { border-radius: 9px; }
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.16);
+  color: @text;
+}
+
+#custom-arch, #custom-power {
+  min-width: 30px;
+  padding: 0;
+}
+#custom-arch { padding: 0 4px 0 0; }
+#custom-power { padding: 0 1px 0 0; }

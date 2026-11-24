@@ -1,0 +1,87 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/arch", "clock", "cpu", "memory"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["pulseaudio", "bluetooth", "network", "battery", "custom/power"],
+
+  "custom/arch": {
+    "format": "\uf303",
+    "align": 0.5,
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%a, %d %B | %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "cpu": {
+    "format": "\uf2db  {usage}%",
+    "interval": 3
+  },
+
+  "memory": {
+    "format": "\uf538  {percentage}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f} GiB / {total:0.1f} GiB"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "○",
+      "active": "●",
+      "urgent": "◉"
+    },
+    "persistent-workspaces": { "*": 5 },
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "\uf6a9  muted",
+    "format-icons": { "default": ["\uf027", "\uf028"] },
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "bluetooth": {
+    "format": "\uf293",
+    "format-off": "\uf293  off",
+    "format-disabled": "\uf293  off",
+    "format-connected": "\uf293  {device_alias}",
+    "format-connected-battery": "\uf293  {device_alias}  {device_battery_percentage}%",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}"
+  },
+
+  "network": {
+    "format-wifi": "\uf1eb  {essid}",
+    "format-ethernet": "\uf796  {ifname}",
+    "format-disconnected": "\uf071  offline",
+    "tooltip-format": "{ifname}  {ipaddr}"
+  },
+
+  "battery": {
+    "states": { "warning": 25, "critical": 12 },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "\uf0e7  {capacity}%",
+    "format-plugged": "\uf1e6  {capacity}%",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+
+  "custom/power": {
+    "format": "\uf011",
+    "align": 0.5,
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
+}
